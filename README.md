@@ -1,10 +1,9 @@
 # import_imdb
 This script will import IMDB data from the relational database created by IMDBpy into AgensGraph. [AgensGraph](http://bitnine.net/agensgraph/) is a graph database platform that runs off of PostgreSQL and is queryable with both SQL and the Cypher Query Language for graph databases. Representing IMDB data as graph data helps to provide an intuitive way to query and visualize connections between cast and crew and the productions that they work on.
 
-##Getting Started
+## Getting Started
 
-
-###Prerequisites
+### Prerequisites
 
 Download the [IMDb Dataset](http://www.imdb.com/interfaces)
 You can download the following ftp command:
@@ -17,7 +16,7 @@ Install [IMDbPy](http://imdbpy.sourceforge.net/). IMDbPy is a Python package tha
 
 Install [AgensGraph](https://github.com/bitnine-oss/agensgraph). We need a running copy of AgensGraph to be able to import the data from IMDB. [AgensGraph Quick Start Guide](http://bitnine.net/support/documents_backup/quick-start-guide-html/)
 
-
+Install [psycopg](http://initd.org/psycopg/). 
 
 ### Installation
 
@@ -45,11 +44,11 @@ With this, all of the IMDb data should be stored in the 'imdb' database in relat
 
 With this, there should be a fully functional graph database of IMDb data in AgensGraph.
 
-##Using the Graph Database
+## Using the Graph Database
 The Graph database stores four main entities as nodes with node labels: Person, Production, Company and Keyword.
 They each have their own properties. Productions lie at the "center" of the graph database, with edge relationships leading in to Productions.
 
-###Relationships between Entities
+### Relationships between Entities
 The possible relationships are stored in edges as follows:
 
 >Person to Production:
@@ -105,11 +104,11 @@ These relationships describe what kind of work a production company did for a pr
 
 It is possible to query any of these relationships between entities that exist in the database.
 
-###Information Storage in Entities
+### Information Storage in Entities
 
 There are pieces of data about persons, productions, keywords and companies that are stored within the edges themselves. They are stored in the JSONB format. Since there is a lot of incomplete information fields for certain items in the database, some items in the database may be lacking 'info' fields that others may have. Rather than storing these fields as 'null', AgensGraph does not have these fields entirely if they are not present. JSONB is a binary format that stores all information as text. Some items in the database can be intrepreted as different data types, so to access them as such, sometimes a cast is necessary.
 
-###Sample Queries
+### Sample Queries
 Here are some possible queries that can be used to explore the IMDb database using AgensGraph and Cypher.
 
 Find the name of all actors that acted in a certain Production:
