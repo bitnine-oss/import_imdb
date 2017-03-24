@@ -51,54 +51,54 @@ They each have their own properties. Productions lie at the "center" of the grap
 ### Relationships between Entities
 The possible relationships are stored in edges as follows:
 
->Person to Production:
->ACTOR_IN
->ACTRESS_IN
->PRODUCER_OF
->WRITER_OF
->CINEMATOGRAPHER_OF
->COMPOSER_FOR
->COSTUME_DESIGNER_FOR
->DIRECTOR_OF
->EDITOR_OF
->MISC_CREW_OF
->PRODUCTION_DESIGNER_FOR
->GUEST_IN
+Person to Production:
+*ACTOR_IN
+*ACTRESS_IN
+*PRODUCER_OF
+*WRITER_OF
+*CINEMATOGRAPHER_OF
+*COMPOSER_FOR
+*COSTUME_DESIGNER_FOR
+*DIRECTOR_OF
+*EDITOR_OF
+*MISC_CREW_OF
+*PRODUCTION_DESIGNER_FOR
+*GUEST_IN
 
 These relationships describe what kind of role that a Person may have had in a Production.
 
->Production to Production:
->FOLLOWS
->FOLLOWED_BY
->REMAKE_OF
->REMADE_AS
->MAKES_REFERENCES_TO
->REFERENCED_IN
->SPOOFS
->SPOOFED_IN
->FEATURES
->FEATURED_IN
->SPIN_OFF_FROM
->SPIN_OFF
->VERSION_OF
->SIMILAR_TO
->EDITED_INTO
->EDITED_FROM
->ALTERNATE_LANGUAGE_VERSION_OF
->UNKNOWN_LINK
+*Production to Production:
+*FOLLOWS
+*FOLLOWED_BY
+*REMAKE_OF
+*REMADE_AS
+*MAKES_REFERENCES_TO
+*REFERENCED_IN
+*SPOOFS
+*SPOOFED_IN
+*FEATURES
+*FEATURED_IN
+*SPIN_OFF_FROM
+*SPIN_OFF
+*VERSION_OF
+*SIMILAR_TO
+*EDITED_INTO
+*EDITED_FROM
+*ALTERNATE_LANGUAGE_VERSION_OF
+*UNKNOWN_LINK
 
 These relationships describe what kind of links that tie Productions with each other.
 
 Keyword to Production:
-KEYWORD_OF
+*KEYWORD_OF
 
 This relationship ties keywords to productions.
 
 Company to Production:
-DISTRIBUTED
-PRODUCED
-DID_SPECIAL_EFFECTS_FOR
-MISC_WORK_ON
+*DISTRIBUTED
+*PRODUCED
+*DID_SPECIAL_EFFECTS_FOR
+*MISC_WORK_ON
 
 These relationships describe what kind of work a production company did for a production.
 
