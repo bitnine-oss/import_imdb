@@ -130,9 +130,11 @@ RETURN a.name,b,c.title;
 ```
 
 Find all other actresses that an actresses has worked with:
+```
 MATCH (a:Person)-[b:ACTRESS_IN]->(c:Production)<-[d:ACTRESS_IN]-(e:Person)
 WHERE a.id::int = 'some_person_id_number'
 RETURN a.name,e.name;
+```
 
 ## Useful Links
 
