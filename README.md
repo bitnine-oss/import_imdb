@@ -30,7 +30,7 @@ To begin the import, first create a database called 'imdb':
 >> createdb imdb
 ```
 
-After the database is created, begin the import. Locate 'imdbpy2sql.py' on your system and run the following command:
+After the database is created, begin the import. Locate 'imdbpy2sql.py' (included in imdbpy2sql) on your system and run the following command:
 
 ```
 >> python imdbpy2sql.py -d [/dir/with/plainTextDataFiles/] -u postgresql://[postgresUser]@localhost/[databasename] -c /directory/where/to/store/CSVfiles
