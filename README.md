@@ -12,6 +12,9 @@ wget -r -l1 -np -nd -P data ftp://ftp.fu-berlin.de/pub/misc/movies/database/
 ```
 
 Install [IMDbPy](http://imdbpy.sourceforge.net/). IMDbPy is a Python package that helps developers develop programs using the IMDb database. The script 'imdbpy2sql.py' will be used to import the IMDb database CSV files into a Agensgraph as a relational database.
+
+NOTE: As of Dec 2017, the new IMDb data redesign shifted the schema of IMDb data to be more simple. The latest IMDbPy version has also been rewritten to accomodate this change. Right now, AgensGraph's import script are still compatible with the older format of the data. To obtain the older version of the IMDb dataset, you can use the above command, followed by the ftp URL [ftp://ftp.fu-berlin.de/pub/misc/movies/database/frozendata/](ftp://ftp.fu-berlin.de/pub/misc/movies/database/frozendata/). You can obtain a version of IMDbPy that still works with the older IMDb data [here](https://github.com/alberanid/imdbpy/blob/imdbpy-legacy/bin/imdbpy2sql.py). 
+
 [Documentation for imdbpy2sql.py](http://imdbpy.sourceforge.net/docs/README.sqldb.txt)
 
 Install [AgensGraph](https://github.com/bitnine-oss/agensgraph). We need a running copy of AgensGraph to be able to import the data from IMDB. [AgensGraph Quick Start Guide](http://bitnine.net/support/documents_backup/quick-start-guide-html/)
