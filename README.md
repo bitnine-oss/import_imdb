@@ -8,7 +8,7 @@ This script will import IMDB data from the relational database created by IMDBpy
 Download the [IMDb Dataset](http://www.imdb.com/interfaces)
 You can download the following ftp command:
 ```
-wget -r -l1 -np -nd -P data ftp://ftp.fu-berlin.de/pub/misc/movies/database/
+wget -r -l1 -np -nd -P data ftp://ftp.fu-berlin.de/pub/misc/movies/database/frozendata/
 ```
 
 Install [IMDbPy](http://imdbpy.sourceforge.net/). IMDbPy is a Python package that helps developers develop programs using the IMDb database. The script 'imdbpy2sql.py' will be used to import the IMDb database CSV files into a Agensgraph as a relational database.
