@@ -7,7 +7,7 @@ This script will import IMDB data from the relational database created by IMDBpy
 
 Download the [IMDb Dataset](http://www.imdb.com/interfaces)
 You can download the following ftp command:
-```
+```sh
 wget -r -l1 -np -nd -P data ftp://ftp.fu-berlin.de/pub/misc/movies/database/
 ```
 
@@ -25,23 +25,23 @@ Install [psycopg](http://initd.org/psycopg/).
 
 After downloading and installing all the necessary components, it would be wise to set a few parameters to optimize AgensGraph.
 
-Look in $AGDATA/postgresql.conf. Resizing 'shared_buffers' and 'work_mem' may reduce runtime.
+Look in `$AGDATA/postgresql.conf`. Resizing `'shared_buffers'` and `'work_mem'` may reduce runtime.
 
-To begin the import, first create a database called 'imdb':
+To begin the import, first create a database called `'imdb'`:
 
-```
->> createdb imdb
+```sh
+createdb imdb
 ```
 
 After the database is created, begin the import. Locate 'imdbpy2sql.py' (included in imdbpy2sql) on your system and run the following command:
 
-```
->> python imdbpy2sql.py -d [/dir/with/plainTextDataFiles/] -u postgresql://[postgresUser]@localhost/[databasename] -c /directory/where/to/store/CSVfiles
+```sh
+python imdbpy2sql.py -d [/dir/with/plainTextDataFiles/] -u postgresql://[postgresUser]@localhost/[databasename] -c /directory/where/to/store/CSVfiles
 ```
 
 With this, all of the IMDb data should be stored in the 'imdb' database in relational tables. Now, give permissions to execute to and run the script 'imdb_agens.sh'.
 
-```
+```sh
 ./imdb_agens.sh
 ```
 
@@ -119,21 +119,21 @@ There are pieces of data about persons, productions, keywords and companies that
 Here are some possible queries that can be used to explore the IMDb database using AgensGraph and Cypher.
 
 Find the name of all actors that acted in a certain Production:
-```
+```sql
 MATCH (a:Person)-[:ACTOR_IN]->(b:Production)
 WHERE b.id::int = 'some_movie_id_number'
 RETURN a.name,b.title;
 ```
 
 Find all productions that a person has worked on in one form or another:
-```
+```sql
 MATCH (a:Person)-[b]->(c:Production)
 WHERE a.id::int = 'some_person_id_number'
 RETURN a.name,b,c.title;
 ```
 
 Find all other actresses that an actresses has worked with:
-```
+```sql
 MATCH (a:Person)-[b:ACTRESS_IN]->(c:Production)<-[d:ACTRESS_IN]-(e:Person)
 WHERE a.id::int = 'some_person_id_number'
 RETURN a.name,e.name;
